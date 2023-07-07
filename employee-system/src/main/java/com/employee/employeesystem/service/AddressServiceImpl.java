@@ -15,7 +15,6 @@ public class AddressServiceImpl implements AddressService{
     public AddressServiceImpl(AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
     }
-    @Transactional
     @Override
     public Address addAddress(Address address) {
         Address address1 = new Address();
@@ -35,12 +34,10 @@ public class AddressServiceImpl implements AddressService{
         return addressRepository.findById(addressId).orElseThrow(() ->
                 new RuntimeException("address with id " + addressId + " does not exist."));
     }
-    @Transactional
     @Override
     public Address save(Address address) {
         return addressRepository.save(address);
     }
-    @Transactional
     @Override
     public String deleteById(Long addressId) {
         Address address = findById(addressId);
