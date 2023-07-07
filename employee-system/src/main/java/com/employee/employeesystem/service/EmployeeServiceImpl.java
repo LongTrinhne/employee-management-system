@@ -18,7 +18,6 @@ public class EmployeeServiceImpl implements EmployeeService{
         this.employeeRepository = employeeRepository;
         this.addressService = addressService;
     }
-    @Transactional
     @Override
     public Employee addEmployee(Employee employee) {
         Employee employee1 = new Employee();
@@ -31,7 +30,6 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employeeRepository.save(employee1);
     }
 
-    @Override
     public List<Employee> findAll() {
         return employeeRepository.findAll();
     }
@@ -41,12 +39,10 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employeeRepository.findById(employeeId).orElseThrow(() ->
                 new RuntimeException("employee with id " + employeeId + " does not exist."));
     }
-    @Transactional
     @Override
     public Employee save(Employee employee) {
         return employeeRepository.save(employee);
     }
-    @Transactional
     @Override
     public String deleteById(Long employeeId) {
         Employee employee = findById(employeeId);
