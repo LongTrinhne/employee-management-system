@@ -12,4 +12,5 @@ public interface EmployeeService {
     Employee findById(Long employeeId);
     Employee save(Employee employee);
     String deleteById(Long employeeId);
+    Employee updateEmployee(Employee employee, Long employeeId);
 }

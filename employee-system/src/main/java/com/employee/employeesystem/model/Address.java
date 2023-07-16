@@ -1,5 +1,6 @@
 package com.employee.employeesystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,5 +25,6 @@ public class Address {
     @Column(name = "house_number", nullable = false)
     private String houseNumber;
     @OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Employee employee;
 }

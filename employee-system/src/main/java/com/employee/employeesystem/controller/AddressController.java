@@ -23,7 +23,7 @@ public class AddressController {
     public Address findAddressById(@PathVariable Long addressId) {
         return addressService.findById(addressId);
     }
-    @PostMapping("/create")
+    @PostMapping("/add")
     public Address addNewAddress(@RequestBody Address address) {
         return addressService.addAddress(address);
     }
